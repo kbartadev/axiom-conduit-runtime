@@ -1,10 +1,10 @@
-# AXIOM Runtime ⚡  
+# AXIOM Conduit Runtime ⚡  
 
 [![C++20](https://img.shields.io/badge/C++-20-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B20)
 [![Lock-Free](https://img.shields.io/badge/Concurrency-Lock--Free-orange.svg)]()
 [![Zero-Allocation](https://img.shields.io/badge/Memory-Zero--Allocation-success.svg)]()
 
-**AXIOM** is a deterministic, O(1) lock-free event routing and processing framework designed for High-Frequency Trading (HFT) and ultra-low latency telecommunication systems.
+**AXIOM Conduit Runtime** is a deterministic, O(1) lock-free event routing and processing framework designed for High-Frequency Trading (HFT) and ultra-low latency telecommunication systems.
 
 Built strictly on C++20 Concepts, AXIOM eliminates Object-Oriented runtime overhead (no RTTI, no virtual tables) in favor of Compile-Time Topological Routing, O(1) Union-Based Slab Pool Physics, and Hardware-Isolated SPSC Conduits.
 
@@ -20,7 +20,7 @@ AXIOM is not just a library; it is a rigid physical system governed by strict in
 AXIOM requires explicit architectural definitions. You do not just "dispatch" an event; you allocate memory, define a logical pipeline, bind it to a physical sink, map it to a conduit, and route it through a cluster.
 
 ```cpp
-#include <axiom/axiom.hpp>
+#include <axiom_conduit/runtime.hpp>
 #include <iostream>
 
 // 1. Define an event using Composition (Fixed Memory Footprint)

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <thread>
 
-#include "axiom/axiom.hpp"
+#include "axiom_conduit/runtime.hpp"
 
 using namespace axiom;
 

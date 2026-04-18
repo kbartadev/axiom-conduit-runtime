@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <atomic>
-#include "axiom/axiom.hpp"
+#include "axiom_conduit/runtime.hpp"
 
 using namespace axiom;
 

@@ -1,6 +1,6 @@
 #include <benchmark/benchmark.h>
 
-#include "axiom/axiom.hpp"
+#include "axiom_conduit/runtime.hpp"
 
 using namespace axiom;
 
