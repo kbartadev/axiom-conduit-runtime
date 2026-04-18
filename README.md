@@ -1,4 +1,4 @@
-﻿# AXIOM Runtime ⚡  
+# AXIOM Runtime ⚡  
 
 [![C++20](https://img.shields.io/badge/C++-20-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B20)
 [![Lock-Free](https://img.shields.io/badge/Concurrency-Lock--Free-orange.svg)]()
@@ -95,6 +95,25 @@ core.send(domain.make<trade_event>(...));
 - /benchmarks/ — HDR Histogram and Google Benchmark methodologies for P99.99 nanosecond latency validation.
 
 Built for the microsecond. Architected for the nanosecond.
+
+## ⚡ Performance & Determinism
+
+AXIOM is engineered for deterministic, sub‑microsecond event routing. Benchmarks show that the runtime operates near the physical limits of the hardware.
+
+| Benchmark               | Latency (Mean) | Iterations   |
+|-------------------------|----------------|--------------|
+| **BM_Conduit_Push**     | **1.77–1.87 ns** | 407,272,727  |
+| **BM_Conduit_FullFlux** | **11.8 ns**      | 64,000,000   |
+
+> **Hardware:** AMD Ryzen 5 9600X (6C/12T @ 3.91 GHz)  
+> **Architecture:** Zen 5 (Granite Ridge, TSMC 4 nm)  
+> **Instruction Set:** AVX‑512, AVX‑VNNI, FMA3, SHA  
+> **Cache Hierarchy:**  
+> • L1 Data: 48 KiB (12‑way)  
+> • L1 Instruction: 32 KiB (8‑way)  
+> • L2: 1 MiB per core (8‑way)  
+> • L3: 32 MiB shared (16‑way)  
+> **Environment:** Windows 11 Pro (Build 22631), MSVC v143 (Release)
 
 ## 💻 Compiler & Platform Compatibility
 AXIOM is a **fully standard** C++20 library with no platform-specific dependencies, ensuring maximum portability across high-performance environments.
