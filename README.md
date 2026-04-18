@@ -8,7 +8,8 @@
 
 Built strictly on C++20 Concepts, AXIOM eliminates Object-Oriented runtime overhead (no RTTI, no virtual tables) in favor of Compile-Time Topological Routing, O(1) Union-Based Slab Pool Physics, and Hardware-Isolated SPSC Conduits.
 
-🔥 Core Invariants  
+🔥 Core Invariants
+
 AXIOM is not just a library; it is a rigid physical system governed by strict invariants:
 
 - Zero Dynamic Allocation: `new` and `malloc` are strictly forbidden in the hot path. All memory is pre-warmed and managed via `axiom::pool`.  
@@ -16,7 +17,8 @@ AXIOM is not just a library; it is a rigid physical system governed by strict in
 - Physical Determinism: Backpressure is handled elegantly. Saturated conduits yield deterministically, instantly reclaiming `event_ptr` memory in O(1) time without deadlocks.  
 - Structural Honesty: Events use Composition, not Inheritance. No vptr bloat, no fragmented memory layouts.
 
-🚀 Quickstart: The Physical Topography  
+🚀 Quickstart: The Physical Topography
+
 AXIOM requires explicit architectural definitions. You do not just "dispatch" an event; you allocate memory, define a logical pipeline, bind it to a physical sink, map it to a conduit, and route it through a cluster.
 
 ```cpp
@@ -67,7 +69,8 @@ int main() {
 }
 ```
 
-🧭 Advanced Routing: Spatial Switches & Pollers  
+🧭 Advanced Routing: Spatial Switches & Pollers
+
 AXIOM explicitly bans Multi-Producer/Multi-Consumer (MPMC) queues to prevent False Sharing and L1 cache invalidation storms. For complex topologies, AXIOM provides O(1) deterministic Fan-Out and Fan-In primitives.
 
 ```cpp
@@ -87,8 +90,9 @@ core.bind<trade_event>(balancer);
 core.send(domain.make<trade_event>(...));
 ```
 
-📂 Repository Structure  
-- /include/axiom_conduit/runtime.hpp — The monolithic C++20 core header.  
+📂 Repository Structure
+
+- /include/axiom_conduit/ — The monolithic C++20 core header.  
 - /examples/ — 13 step-by-step architectural blueprints (from basic pipelines to OS-level graceful draining).  
 - /tests/ — GoogleTest suite proving memory physics, ABA protection, and layout invariants.  
 - /docs/ — In-depth System Architect references, ADRs, and SRE Runbooks.  
@@ -97,7 +101,6 @@ core.send(domain.make<trade_event>(...));
 Built for the microsecond. Architected for the nanosecond.
 
 ## ⚡ Performance & Determinism
-
 AXIOM is engineered for deterministic, sub‑microsecond event routing. Benchmarks show that the runtime operates near the physical limits of the hardware.
 
 | Benchmark               | Latency (Mean) | Iterations   |
@@ -119,7 +122,9 @@ AXIOM is engineered for deterministic, sub‑microsecond event routing. Benchmar
 AXIOM is a **fully standard** C++20 library with no platform-specific dependencies, ensuring maximum portability across high-performance environments.
 
 **Current Reference Implementation**
+
 The current reference build targets the following toolchain:
+
 - Compiler: MSVC C++20 (v143 or newer) 
 - Architecture: Windows x64 
 - Standard Library: Fully compliant C++20 STL 
@@ -130,7 +135,6 @@ While the core logic relies strictly on standard C++ features (Concepts, Atomics
 - **GCC 12+**: (Planned) Linux-specific kernel tuning and io_uring integration examples.
 
 ## ⚖️ Licensing & Commercial Support
-
 AXIOM is released under the **GNU Affero General Public License v3 (AGPLv3)**. 
 
 ### What this means
