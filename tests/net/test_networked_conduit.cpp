@@ -2,9 +2,9 @@
 #include <chrono>
 #include <iostream>
 
-// Core AXIOM includes
-#include "axiom_conduit/core.hpp"
-#include "axiom_conduit/net/networked_conduit.hpp"
+// Core CONDUIT includes
+#include "conduit/core.hpp"
+#include "conduit/net/networked_conduit.hpp"
 
 // Windows-specific TCP setup
 #if defined(_WIN32)
@@ -13,10 +13,10 @@
 #pragma comment(lib, "ws2_32.lib")
 #endif
 
-using namespace axiom;
-using namespace axiom::net;
+using namespace cre;
+using namespace cre::net;
 
-// 1. AXIOM Event Definition
+// 1. CONDUIT Event Definition
 struct tick_data {
     uint64_t sequence;
     double price;
@@ -81,7 +81,7 @@ void setup_loopback_sockets(os_socket_t& fd_A, os_socket_t& fd_B) {
 }
 
 int main() {
-    std::cout << "[AXIOM] Starting Networked Conduit Integration Test...\n";
+    std::cout << "[CONDUIT] Starting Networked Conduit Integration Test...\n";
 
     os_socket_t fd_A = INVALID_SOCKET;
     os_socket_t fd_B = INVALID_SOCKET;

@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 // ============================================================================
 // 1. COMPOSITION-BASED “INHERITANCE” (Memory-safe structural hierarchy)

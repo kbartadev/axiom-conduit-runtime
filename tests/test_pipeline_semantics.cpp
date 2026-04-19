@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct massive_event : allocated_event<massive_event, 99> {};
 

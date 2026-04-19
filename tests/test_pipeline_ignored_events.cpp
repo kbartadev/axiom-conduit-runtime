@@ -2,9 +2,9 @@
 
 #include <atomic>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct load_event : allocated_event<load_event, 42> {};
 

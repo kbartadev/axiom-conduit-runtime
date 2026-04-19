@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 #include <atomic>
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct simple_event : allocated_event<simple_event, 5> {
     std::atomic<int>* counter;

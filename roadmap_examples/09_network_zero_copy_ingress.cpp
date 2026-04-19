@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 // Trivial POD-style event used for network ingestion.
 // Designed for direct byte-level reconstruction without fragmentation or parsing overhead.

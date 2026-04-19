@@ -1,5 +1,5 @@
 # -------------------------------------------------------------
-# AXIOM Benchmarks (Google Benchmark)
+# CONDUIT Benchmarks (Google Benchmark)
 # -------------------------------------------------------------
 
 cmake_minimum_required(VERSION 3.20)
@@ -21,7 +21,7 @@ FetchContent_MakeAvailable(googlebenchmark)
 # -------------------------------------------------------------
 # Collect all benchmark .cpp files
 # -------------------------------------------------------------
-file(GLOB AXIOM_BENCH_SOURCES
+file(GLOB CONDUIT_BENCH_SOURCES
     CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
 )
@@ -29,14 +29,14 @@ file(GLOB AXIOM_BENCH_SOURCES
 # -------------------------------------------------------------
 # Create an executable for each benchmark
 # -------------------------------------------------------------
-foreach(BENCH_FILE ${AXIOM_BENCH_SOURCES})
+foreach(BENCH_FILE ${CONDUIT_BENCH_SOURCES})
     get_filename_component(BENCH_NAME ${BENCH_FILE} NAME_WE)
 
     add_executable(${BENCH_NAME} ${BENCH_FILE})
 
     target_link_libraries(${BENCH_NAME}
         PRIVATE
-            axiom
+            conduit
             benchmark::benchmark
             benchmark::benchmark_main
     )
@@ -45,5 +45,5 @@ foreach(BENCH_FILE ${AXIOM_BENCH_SOURCES})
 
     set_property(TARGET ${BENCH_NAME} PROPERTY FOLDER "Benchmarks")
 
-    message(STATUS "AXIOM benchmark added: ${BENCH_NAME}")
+    message(STATUS "CONDUIT benchmark added: ${BENCH_NAME}")
 endforeach()

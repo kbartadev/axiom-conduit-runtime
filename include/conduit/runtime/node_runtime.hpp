@@ -25,7 +25,7 @@
 
 #include "../core.hpp"
 
-namespace axiom::runtime {
+namespace cre::runtime {
 
 // ========================================================================
 // 1. HARDWARE ISOLATION: CPU Pinning
@@ -70,7 +70,7 @@ conduit_binding<C, S> bind_conduit(C& c, S& s) {
 }
 
 // ========================================================================
-// 3. AXIOM NODE RUNTIME (The Execution Engine)
+// 3. CONDUIT NODE RUNTIME (The Execution Engine)
 // ========================================================================
 template <typename DomainType, typename... Bindings>
 class alignas(64) node_runtime {
@@ -89,7 +89,7 @@ class alignas(64) node_runtime {
     void run(int core_id = -1) noexcept {
         if (core_id >= 0) {
             if (!pin_thread_to_core(core_id)) {
-                std::cerr << "[AXIOM Warn] Failed to pin thread to core " << core_id << "\n";
+                std::cerr << "[CONDUIT Warn] Failed to pin thread to core " << core_id << "\n";
             }
         }
 
@@ -126,4 +126,4 @@ class alignas(64) node_runtime {
     }
 };
 
-}  // namespace axiom::runtime
+}  // namespace cre::runtime

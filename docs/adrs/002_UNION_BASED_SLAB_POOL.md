@@ -7,7 +7,7 @@ Accepted
 
 ## Context
 
-Lock-free free-lists require storing a next pointer (or index) inside unallocated memory blocks. Previously, AXIOM used `reinterpret\_cast` to write the index directly into the first 4 bytes of the payload. This caused undefined behavior due to offset mismatching and strict aliasing violations.
+Lock-free free-lists require storing a next pointer (or index) inside unallocated memory blocks. Previously, CONDUIT used `reinterpret\_cast` to write the index directly into the first 4 bytes of the payload. This caused undefined behavior due to offset mismatching and strict aliasing violations.
 
 
 ## Decision

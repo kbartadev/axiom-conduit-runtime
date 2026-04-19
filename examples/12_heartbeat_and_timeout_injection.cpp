@@ -2,9 +2,9 @@
 #include <iostream>
 #include <thread>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 // System-level event carrying a timestamp.
 // Time is just another event type in the fabric.

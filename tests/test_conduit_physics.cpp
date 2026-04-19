@@ -3,9 +3,9 @@
 #include <chrono>
 #include <thread>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct tiny_event : allocated_event<tiny_event, 2> {};
 

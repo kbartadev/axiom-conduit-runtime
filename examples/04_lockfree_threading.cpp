@@ -1,9 +1,9 @@
 #include <iostream>
 #include <thread>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct telemetry_event : allocated_event<telemetry_event, 5> {
     int sensor_id;

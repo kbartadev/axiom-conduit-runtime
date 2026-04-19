@@ -2,9 +2,9 @@
 
 #include <atomic>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct task : allocated_event<task, 25> {
     std::atomic<int>* counter;

@@ -1,6 +1,6 @@
 # The 8-Layer Stack Architecture
 
-AXIOM is modeled as a physical hardware stack rather than a software library.
+CONDUIT is modeled as a physical hardware stack rather than a software library.
 
 ## Physical Layers
 

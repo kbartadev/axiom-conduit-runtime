@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 // --- 1. Multi-layer event composed from independent logical layers.
 //     Composition is used instead of OOP inheritance to avoid fragmentation

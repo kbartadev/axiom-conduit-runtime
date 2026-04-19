@@ -1,6 +1,6 @@
 # Core Architectural Principles
 
-Any contribution or modification to the AXIOM core must respect these fundamental engineering principles.
+Any contribution or modification to the CONDUIT core must respect these fundamental engineering principles.
 
 ## Structural Honesty
 
@@ -9,7 +9,7 @@ Code must perform exactly as it appears. No hidden memory offsets via unsafe cas
 ## Performance Integrity
 
 - No virtual functions. Use CRTP and Concepts.
-- No `std::shared_ptr`. Use `axiom::event_ptr` for strict unique ownership.
+- No `std::shared_ptr`. Use `cre::event_ptr` for strict unique ownership.
 - No global heap allocation. Heap allocation is banned in the hot path.
 
 ## Explicit Control
@@ -25,7 +25,7 @@ Implicit behavior is forbidden. Handlers must explicitly dictate the execution o
 
 Locks, mutexes, and semaphores are prohibited. All synchronization must be visible through lock-free atomic barriers.# Core Architectural Principles
 
-Any contribution or modification to the AXIOM core must respect these fundamental engineering principles.
+Any contribution or modification to the CONDUIT core must respect these fundamental engineering principles.
 
 ## Structural Honesty
 
@@ -34,7 +34,7 @@ Code must perform exactly as it appears. No hidden memory offsets via unsafe cas
 ## Performance Integrity
 
 - No virtual functions. Use CRTP and Concepts.
-- No `std::shared_ptr`. Use `axiom::event_ptr` for strict unique ownership.
+- No `std::shared_ptr`. Use `cre::event_ptr` for strict unique ownership.
 - No global heap allocation. Heap allocation is banned in the hot path.
 
 ## Explicit Control
@@ -50,7 +50,7 @@ Implicit behavior is forbidden. Handlers must explicitly dictate the execution o
 
 Locks, mutexes, and semaphores are prohibited. All synchronization must be visible through lock-free atomic barriers.# Core Architectural Principles
 
-Any contribution or modification to the AXIOM core must respect these fundamental engineering principles.
+Any contribution or modification to the CONDUIT core must respect these fundamental engineering principles.
 
 ## Structural Honesty
 
@@ -59,7 +59,7 @@ Code must perform exactly as it appears. No hidden memory offsets via unsafe cas
 ## Performance Integrity
 
 - No virtual functions. Use CRTP and Concepts.
-- No `std::shared_ptr`. Use `axiom::event_ptr` for strict unique ownership.
+- No `std::shared_ptr`. Use `cre::event_ptr` for strict unique ownership.
 - No global heap allocation. Heap allocation is banned in the hot path.
 
 ## Explicit Control

@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 // 1. Explicit event type definition.
 //    No RTTI, no dynamic type inspection. The event carries a compile-time fixed ID (10),

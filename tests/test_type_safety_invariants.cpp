@@ -2,9 +2,9 @@
 
 #include <type_traits>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct dummy_event : allocated_event<dummy_event, 10> {
     int data;

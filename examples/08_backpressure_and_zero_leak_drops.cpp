@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct telemetry_ping : allocated_event<telemetry_ping, 11> {
     int seq_num;

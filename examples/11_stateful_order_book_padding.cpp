@@ -1,9 +1,9 @@
 #include <array>
 #include <iostream>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct trade_tick : allocated_event<trade_tick, 70> {
     int symbol_id;

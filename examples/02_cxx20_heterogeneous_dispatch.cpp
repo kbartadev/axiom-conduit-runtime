@@ -1,7 +1,7 @@
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 #include <iostream>
 
-using namespace axiom;
+using namespace cre;
 
 // 1. Distinct event types with static identities.
 struct trade_event : allocated_event<trade_event, 10> {

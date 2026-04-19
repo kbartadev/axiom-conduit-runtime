@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 // --- Event type ------------------------------------------------------------
 // Static identity (ID = 30), no RTTI, no dynamic inspection.

@@ -4,9 +4,9 @@
 #include <thread>
 #include <vector>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct packet : allocated_event<packet, 10> {
     int seq;

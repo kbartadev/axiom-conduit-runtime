@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(axiom
+project(conduit
     VERSION 1.0.0
     DESCRIPTION "Deterministic Distributed Event Runtime"
     LANGUAGES CXX
@@ -14,11 +14,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # -------------------------------------------------------------
-# Header-only AXIOM library
+# Header-only CONDUIT library
 # -------------------------------------------------------------
-add_library(axiom INTERFACE)
+add_library(conduit INTERFACE)
 
-target_include_directories(axiom INTERFACE
+target_include_directories(conduit INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
@@ -49,35 +49,35 @@ endif()
 # -------------------------------------------------------------
 # Installation (optional but professional)
 # -------------------------------------------------------------
-install(TARGETS axiom
-    EXPORT axiomTargets
+install(TARGETS conduit
+    EXPORT conduitTargets
     INCLUDES DESTINATION include
 )
 
 install(DIRECTORY include/ DESTINATION include)
 
-install(EXPORT axiomTargets
-    FILE axiomTargets.cmake
-    NAMESPACE axiom::
-    DESTINATION lib/cmake/axiom
+install(EXPORT conduitTargets
+    FILE conduitTargets.cmake
+    NAMESPACE cre::
+    DESTINATION lib/cmake/conduit
 )
 
 include(CMakePackageConfigHelpers)
 
 write_basic_package_version_file(
-    "${CMAKE_CURRENT_BINARY_DIR}/axiomConfigVersion.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/conduitConfigVersion.cmake"
     VERSION ${PROJECT_VERSION}
     COMPATIBILITY SameMajorVersion
 )
 
 configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/axiomConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/axiomConfig.cmake"
-    INSTALL_DESTINATION lib/cmake/axiom
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/conduitConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/conduitConfig.cmake"
+    INSTALL_DESTINATION lib/cmake/conduit
 )
 
 install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/axiomConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/axiomConfigVersion.cmake"
-    DESTINATION lib/cmake/axiom
+    "${CMAKE_CURRENT_BINARY_DIR}/conduitConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/conduitConfigVersion.cmake"
+    DESTINATION lib/cmake/conduit
 )

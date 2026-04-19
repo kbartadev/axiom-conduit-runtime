@@ -3,9 +3,9 @@
 #include <iostream>
 #include <thread>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct work_event : allocated_event<work_event, 10> {
     int id;

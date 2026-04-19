@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct network_packet : allocated_event<network_packet, 99> {
     int trade_id;

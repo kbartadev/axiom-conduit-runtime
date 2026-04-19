@@ -2,9 +2,9 @@
 #include <thread>
 #include <vector>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct result_event : allocated_event<result_event, 33> {
     int worker_id;

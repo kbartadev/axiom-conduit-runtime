@@ -4,12 +4,12 @@
 #include <iostream>
 #include <thread>
 
-// 1. Pull in the AXIOM core (Domain, memory management)
-#include "axiom_conduit/core.hpp"
+// 1. Pull in the CONDUIT core (Domain, memory management)
+#include "conduit/core.hpp"
 
 // 2. Pull in the specific modules required in THIS file
-#include "axiom_conduit/net/networked_conduit.hpp"
-#include "axiom_conduit/runtime/node_runtime.hpp"
+#include "conduit/net/networked_conduit.hpp"
+#include "conduit/runtime/node_runtime.hpp"
 
 #if defined(_WIN32)
 #include <winsock2.h>
@@ -17,12 +17,12 @@
 #pragma comment(lib, "ws2_32.lib")
 #endif
 
-using namespace axiom;
-using namespace axiom::net;
-using namespace axiom::runtime;
+using namespace cre;
+using namespace cre::net;
+using namespace cre::runtime;
 
 // ========================================================================
-// 1. AXIOM EVENT (Trivially Copyable)
+// 1. CONDUIT EVENT (Trivially Copyable)
 // ========================================================================
 struct tick_data {
     uint64_t sequence;
@@ -105,7 +105,7 @@ void on_conduit_dead(networked_conduit<tick_event, 1024>& c) {
 }
 
 int main() {
-    std::cout << "[AXIOM] Starting Multi-Core Node Runtime Integration Test...\n";
+    std::cout << "[CONDUIT] Starting Multi-Core Node Runtime Integration Test...\n";
 
     os_socket_t fd_A = INVALID_SOCKET;
     os_socket_t fd_B = INVALID_SOCKET;
@@ -153,7 +153,7 @@ int main() {
     // Wait 100ms for the OS scheduler to start Node B on the other core
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-    std::cout << "[AXIOM] Nodes isolated. Firing 1,000,000 events across core boundary...\n";
+    std::cout << "[CONDUIT] Nodes isolated. Firing 1,000,000 events across core boundary...\n";
     auto start_time = std::chrono::high_resolution_clock::now();
 
     // Node A hot loop

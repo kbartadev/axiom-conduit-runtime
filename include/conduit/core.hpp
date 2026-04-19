@@ -22,7 +22,7 @@
 #include <type_traits>
 #include <cstring>
 
-namespace axiom {
+namespace cre {
 
     template<typename Event> class pool;
 
@@ -331,4 +331,4 @@ namespace axiom {
         pool<Event>& get_pool() { return std::get<pool<Event>>(pools_); }
     };
 
-} // namespace axiom
+} // namespace cre

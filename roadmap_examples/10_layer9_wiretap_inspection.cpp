@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct finance_order : allocated_event<finance_order, 88> {
     int order_id;

@@ -10,13 +10,13 @@ Standard thread-pool architectures use Multi-Producer Single-Consumer (MPSC) or 
 
 ## Decision
 
-MPSC and MPMC queues are explicitly banned from the AXIOM architecture. Only Single-Producer Single-Consumer (SPSC) queues (`conduit`) are allowed.
+MPSC and MPMC queues are explicitly banned from the CONDUIT architecture. Only Single-Producer Single-Consumer (SPSC) queues (`conduit`) are allowed.
 
 ## Consequences
 
 ### Positives
 
-By avoiding concurrent writes to the same atomic head and tail indices, AXIOM eliminates False Sharing and MESI cache invalidation storms. Throughput becomes entirely deterministic.
+By avoiding concurrent writes to the same atomic head and tail indices, CONDUIT eliminates False Sharing and MESI cache invalidation storms. Throughput becomes entirely deterministic.
 
 ### Negatives
 
@@ -32,13 +32,13 @@ Standard thread-pool architectures use Multi-Producer Single-Consumer (MPSC) or 
 
 ## Decision
 
-MPSC and MPMC queues are explicitly banned from the AXIOM architecture. Only Single-Producer Single-Consumer (SPSC) queues (`conduit`) are allowed.
+MPSC and MPMC queues are explicitly banned from the CONDUIT architecture. Only Single-Producer Single-Consumer (SPSC) queues (`conduit`) are allowed.
 
 ## Consequences
 
 ### Positives
 
-By avoiding concurrent writes to the same atomic head and tail indices, AXIOM eliminates False Sharing and MESI cache invalidation storms. Throughput becomes entirely deterministic.
+By avoiding concurrent writes to the same atomic head and tail indices, CONDUIT eliminates False Sharing and MESI cache invalidation storms. Throughput becomes entirely deterministic.
 
 ### Negatives
 

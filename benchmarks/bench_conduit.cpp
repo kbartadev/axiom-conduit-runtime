@@ -1,8 +1,8 @@
 #include <benchmark/benchmark.h>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct bench_event : allocated_event<bench_event, 1> {
     int payload[16];  // 64 bytes (Exactly one cache line)

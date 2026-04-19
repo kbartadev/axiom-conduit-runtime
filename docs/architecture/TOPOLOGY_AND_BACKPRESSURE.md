@@ -1,6 +1,6 @@
 # Topology and Backpressure Mechanics
 
-AXIOM treats data flow as a physical fluid. If a downstream pipe is blocked, the system must react deterministically.
+CONDUIT treats data flow as a physical fluid. If a downstream pipe is blocked, the system must react deterministically.
 
 ## Strict SPSC Topology
 

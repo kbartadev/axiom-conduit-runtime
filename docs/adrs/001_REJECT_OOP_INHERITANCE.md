@@ -16,7 +16,7 @@ While this provides high cognitive flexibility for developers, it introduces cat
 
 ## Decision
 
-We explicitly ban the use of virtual functions, RTTI (`dynamic_cast`), and standard OOP inheritance for all hot-path event and handler structures in AXIOM.
+We explicitly ban the use of virtual functions, RTTI (`dynamic_cast`), and standard OOP inheritance for all hot-path event and handler structures in CONDUIT.
 
 Instead, we enforce the following compile-time mechanisms:
 

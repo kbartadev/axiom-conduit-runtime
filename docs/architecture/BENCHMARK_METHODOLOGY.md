@@ -1,6 +1,6 @@
 # Benchmarking Methodology
 
-To validate performance integrity, AXIOM mandates strict benchmarking protocols for any changes to the pool or conduit.
+To validate performance integrity, CONDUIT mandates strict benchmarking protocols for any changes to the pool or conduit.
 
 ## 1. Environment Requirements
 
@@ -10,7 +10,7 @@ To validate performance integrity, AXIOM mandates strict benchmarking protocols 
 
 ## 2. Measurement Tools
 
-AXIOM uses Google Benchmark to measure mean throughput and HDR Histogram to measure tail latency (P99, P99.9, P99.99).
+CONDUIT uses Google Benchmark to measure mean throughput and HDR Histogram to measure tail latency (P99, P99.9, P99.99).
 Average execution times are irrelevant in HFT; the maximum latency outlier dictates system reliability.
 
 ## 3. False Sharing Validation

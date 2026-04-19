@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "axiom_conduit/core.hpp"
+#include "conduit/core.hpp"
 
-using namespace axiom;
+using namespace cre;
 
 struct task_event : allocated_event<task_event, 42> {
     int job_id;

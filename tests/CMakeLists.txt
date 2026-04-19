@@ -1,5 +1,5 @@
 # -------------------------------------------------------------
-# AXIOM Tests (GoogleTest)
+# CONDUIT Tests (GoogleTest)
 # -------------------------------------------------------------
 
 cmake_minimum_required(VERSION 3.20)
@@ -17,19 +17,19 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-file(GLOB_RECURSE AXIOM_TEST_SOURCES
+file(GLOB_RECURSE CONDUIT_TEST_SOURCES
     CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
 )
 
-foreach(TEST_FILE ${AXIOM_TEST_SOURCES})
+foreach(TEST_FILE ${CONDUIT_TEST_SOURCES})
     get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
 
     add_executable(${TEST_NAME} ${TEST_FILE})
 
     target_link_libraries(${TEST_NAME}
         PRIVATE
-            axiom
+            conduit
             GTest::gtest
             GTest::gtest_main
     )
@@ -40,5 +40,5 @@ foreach(TEST_FILE ${AXIOM_TEST_SOURCES})
 
     set_property(TARGET ${TEST_NAME} PROPERTY FOLDER "Tests")
 
-    message(STATUS "AXIOM test added: ${TEST_NAME}")
+    message(STATUS "CONDUIT test added: ${TEST_NAME}")
 endforeach()

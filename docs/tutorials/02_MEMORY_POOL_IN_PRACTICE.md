@@ -1,16 +1,16 @@
 # Tutorial 2: Memory Pools in Practice
 
-In AXIOM, calling `new` or `malloc` in the hot path is a critical violation of performance principles. All runtime memory must come from an O(1) slab pool.
+In CONDUIT, calling `new` or `malloc` in the hot path is a critical violation of performance principles. All runtime memory must come from an O(1) slab pool.
 
 ## The Rule of Ownership
 
-Events are wrapped in an `axiom::event\_ptr`. This acts similarly to `std::unique\_ptr`, but it does not call `delete`. Instead, it returns the memory slice directly to the lock-free pool in O(1) time.
+Events are wrapped in an `cre::event\_ptr`. This acts similarly to `std::unique\_ptr`, but it does not call `delete`. Instead, it returns the memory slice directly to the lock-free pool in O(1) time.
 
 ## Safe Allocation
 
 ~~~cpp
 // 1. Define the domain and its capacity
-axiom::runtime\_domain<trade\_event> domain;
+cre::runtime\_domain<trade\_event> domain;
 
 // 2. Allocate an event
 auto ev = domain.make<trade\_event>(150.50);

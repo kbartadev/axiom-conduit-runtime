@@ -35,13 +35,13 @@ constexpr int INVALID_SOCKET = -1;
 #endif
 #endif
 
-namespace axiom::net {
+namespace cre::net {
 
 // ---------------------------------------------------------
-// 5. & 4. Stricter AxiomEvent Concept & Trivially Copyable
+// 5. & 4. Stricter ConduitEvent Concept & Trivially Copyable
 // ---------------------------------------------------------
 template <typename T>
-concept AxiomEvent = requires {
+concept ConduitEvent = requires {
     { T::TYPE_ID } -> std::convertible_to<uint32_t>;
 } && std::is_trivially_copyable_v<T>;
 
@@ -51,7 +51,7 @@ struct alignas(64) wire_frame {
     std::byte payload[sizeof(T)];
 };
 
-template <AxiomEvent T, size_t Capacity>
+template <ConduitEvent T, size_t Capacity>
 class alignas(64) networked_conduit {
    private:
     static_assert((Capacity & (Capacity - 1)) == 0, "Capacity must be a power of 2.");
@@ -89,7 +89,7 @@ class alignas(64) networked_conduit {
         is_dead_.store(false, std::memory_order_release);
     }
 
-    [[nodiscard]] bool push(axiom::event_ptr<T>& ev) noexcept {
+    [[nodiscard]] bool push(cre::event_ptr<T>& ev) noexcept {
         if (is_dead_.load(std::memory_order_acquire) || !ev) return false;
 
         const size_t head = tx_head_.load(std::memory_order_relaxed);
@@ -206,7 +206,7 @@ class alignas(64) networked_conduit {
             tx_inflight_offset_ = 0;
 
             // 6. DEAD Transition surfacing
-            // TODO(Architecture): Emit an AXIOM system event (e.g., conduit_dead_event)
+            // TODO(Architecture): Emit an CONDUIT system event (e.g., conduit_dead_event)
             // into the local runtime topology to trigger failover/orchestration routines.
         }
     }
@@ -220,4 +220,4 @@ class alignas(64) networked_conduit {
     }
 };
 
-}  // namespace axiom::net
+}  // namespace cre::net

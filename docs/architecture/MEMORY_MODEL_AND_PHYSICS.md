@@ -2,7 +2,7 @@
 
 ## Atomic Memory Ordering
 
-AXIOM uses Acquire-Release semantics to minimize CPU pipeline stalls.
+CONDUIT uses Acquire-Release semantics to minimize CPU pipeline stalls.
 
 - **Allocation:** `compare\_exchange\_weak` with `memory\_order\_release` on success and `memory\_order\_acquire` on failure.
 - **Deallocation:** Writes to `next\_index` occur before the atomic store to ensure global visibility.
