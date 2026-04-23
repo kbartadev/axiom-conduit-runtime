@@ -4,16 +4,16 @@ In CONDUIT, calling `new` or `malloc` in the hot path is a critical violation of
 
 ## The Rule of Ownership
 
-Events are wrapped in an `cre::event\_ptr`. This acts similarly to `std::unique\_ptr`, but it does not call `delete`. Instead, it returns the memory slice directly to the lock-free pool in O(1) time.
+Events are wrapped in an `cre::event_ptr`. This acts similarly to `std::unique_ptr`, but it does not call `delete`. Instead, it returns the memory slice directly to the lock-free pool in O(1) time.
 
 ## Safe Allocation
 
 ~~~cpp
 // 1. Define the domain and its capacity
-cre::runtime\_domain<trade\_event> domain;
+cre::runtime_domain<trade_event> domain;
 
 // 2. Allocate an event
-auto ev = domain.make<trade\_event>(150.50);
+auto ev = domain.make<trade_event>(150.50);
 
 if (ev) {
 &#x20;   // ev is valid and uniquely owned by this scope

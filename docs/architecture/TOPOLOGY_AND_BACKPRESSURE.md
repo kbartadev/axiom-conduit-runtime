@@ -9,7 +9,7 @@ Every conduit is strictly Single-Producer Single-Consumer. This guarantees that 
 ## Deterministic Drops (Backpressure)
 
 When a producer attempts to `push()` into a full conduit, the push operation returns `false`.
-- If routed directly, the producer retains ownership of the `event\_ptr`.
-- If routed via a switch, the switch will detect the failure. Instead of blocking or spinning indefinitely, it drops the event. The `event\_ptr` goes out of scope and the memory is instantly reclaimed by the pool.
+- If routed directly, the producer retains ownership of the `event_ptr`.
+- If routed via a switch, the switch will detect the failure. Instead of blocking or spinning indefinitely, it drops the event. The `event_ptr` goes out of scope and the memory is instantly reclaimed by the pool.
 
 This ensures the system never deadlocks under extreme network saturation.

@@ -12,8 +12,8 @@
 **Diagnosis:** Memory leak in user logic. Pointers are not going out of scope.
 **Action:** Inspect stateful handlers. Verify events are not being stored in long-lived containers.
 
-## Incident: SIGSEGV in `allocate\_raw`
+## Incident: SIGSEGV in `allocate_raw`
 
 **Check:** Application crash during allocation.
-**Diagnosis:** Buffer overflow in a neighboring slab cell has corrupted `next\_index`.
+**Diagnosis:** Buffer overflow in a neighboring slab cell has corrupted `next_index`.
 **Action:** Run the binary with AddressSanitizer (ASAN) to find the illegal memory write.
