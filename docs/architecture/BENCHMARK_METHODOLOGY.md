@@ -15,11 +15,11 @@ Average execution times are irrelevant in HFT; the maximum latency outlier dicta
 
 ## 3. False Sharing Validation
 
-Always ensure that `std::hardware\_destructive\_interference\_size` matches the L1 cache line size of the physical CPU executing the tests.
+Always ensure that `std::hardware_destructive_interference_size` matches the L1 cache line size of the physical CPU executing the tests.
 
 You can verify cache misses during the benchmark using `perf`:
 ~~~bash
-perf stat -e cache-misses,cache-references ./benchmarks/bench\_conduit
+perf stat -e cache-misses,cache-references ./benchmarks/bench_conduit
 ~~~
 
 A successful lock-free architecture will show near-zero L1 cache misses during a continuous SPSC flow.

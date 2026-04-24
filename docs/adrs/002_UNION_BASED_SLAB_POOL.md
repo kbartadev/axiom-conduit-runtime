@@ -15,8 +15,8 @@ Lock-free free-lists require storing a next pointer (or index) inside unallocate
 We enforce a `union` structure for all memory cells:
 ~~~cpp
 union {
-	alignas(Event) unsigned char payload\[sizeof(Event)];
-	uint32\_t next\_index;
+	alignas(Event) unsigned char payload[sizeof(Event)];
+	uint32_t next_index;
 };
 ~~~
 
@@ -24,8 +24,8 @@ union {
 
 ### Positives
 
-- Complete elimination of `reinterpret\_cast`
-- Guaranteed C++ pointer interconvertibility (`\&cell == \&payload == \&next\_index`)
+- Complete elimination of `reinterpret_cast`
+- Guaranteed C++ pointer interconvertibility (`&cell == &payload == &next_index`)
 - Guaranteed minimum size of 4 bytes for empty events
 
 ### Negatives

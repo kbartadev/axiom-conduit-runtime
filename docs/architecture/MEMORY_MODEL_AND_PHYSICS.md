@@ -4,7 +4,7 @@
 
 CONDUIT uses Acquire-Release semantics to minimize CPU pipeline stalls.
 
-- **Allocation:** `compare\_exchange\_weak` with `memory\_order\_release` on success and `memory\_order\_acquire` on failure.
+- **Allocation:** `compare_exchange_weak` with `memory_order_release` on success and `memory_order_acquire` on failure.
 - **Deallocation:** Writes to `next\_index` occur before the atomic store to ensure global visibility.
 
 ## ABA Protection
@@ -15,4 +15,4 @@ The pool uses a 64-bit atomic state:
 
 ## False Sharing
 
-All atomic counters are padded using `std::hardware\_destructive\_interference\_size` to ensure they reside on distinct L1 cache lines, preventing MESI protocol thrashing.
+All atomic counters are padded using `std::hardware_destructive_interference_size` to ensure they reside on distinct L1 cache lines, preventing MESI protocol thrashing.

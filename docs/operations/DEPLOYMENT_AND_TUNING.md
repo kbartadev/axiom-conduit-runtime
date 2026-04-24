@@ -4,12 +4,12 @@
 
 For O(1) latency guarantees, threads must be pinned to isolated CPU cores.
 
-- Use `taskset` or `pthread\_setaffinity\_np`.
+- Use `taskset` or `pthread_setaffinity_np`.
 - Isolate cores at the boot level via `isolcpus` in GRUB.
 
 ## NUMA Alignment
 
-The `runtime\_domain` and its associated worker threads must reside on the same NUMA node to avoid cross-socket memory latency.
+The `runtime_domain` and its associated worker threads must reside on the same NUMA node to avoid cross-socket memory latency.
 
 ## Optimization Flags
 
