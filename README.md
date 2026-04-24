@@ -19,22 +19,14 @@ CONDUIT requires explicit architectural definitions. You do not just "push" an e
 Built for the microsecond. Architected for the nanosecond.
 
 ## ⚡ Performance & Determinism
-CONDUIT is engineered for high-performance event routing.
+CONDUIT is a fully standard C++20 library.
 
 | Benchmark               | Latency (Mean) | Iterations   |
 |-------------------------|----------------|--------------|
 | **BM_Conduit_Push**     | **1.77–1.87 ns** | 407,272,727  |
 | **BM_Conduit_FullFlux** | **11.8 ns**      | 64,000,000   |
 
-> **Hardware:** AMD Ryzen 5 9600X (6C/12T @ 3.91 GHz)  
-> **Architecture:** Zen 5 (Granite Ridge, TSMC 4 nm)  
-> **Instruction Set:** AVX‑512, AVX‑VNNI, FMA3, SHA  
-> **Cache Hierarchy:**  
-> • L1 Data: 48 KiB
-> • L1 Instruction: 32 KiB
-> • L2: 1 MiB per core
-> • L3: 32 MiB shared
-> **Environment:**: Windows 11 Pro (Build 22631), MSVC v143 (Release)
+> **Environment**: Windows 11 Pro, MSVC v143 (Release), AMD Ryzen 5 9600X.
 
 ## 💻 Compiler & Platform Compatibility
 CONDUIT is a C++20 library, ensuring maximum portability across high-performance environments.
