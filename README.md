@@ -1,9 +1,5 @@
 # CONDUIT Runtime Environment ⚡  
 
-[![C++20](https://img.shields.io/badge/C++-20-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B20)
-[![Lock-Free](https://img.shields.io/badge/Concurrency-Lock--Free-orange.svg)]()
-[![Zero-Allocation](https://img.shields.io/badge/Memory-Zero--Allocation-success.svg)]()
-
 **CONDUIT** is a deterministic, lock-free event routing and processing framework designed for High-Frequency Trading (HFT) and ultra-low latency backend systems.
 
 Built strictly on C++20 Concepts, CONDUIT avoids Object-Oriented runtime overhead (no RTTI, no virtual tables) in favor of Compile-Time Topological Routing, Union-Based Slab Pool allocation, and Hardware-Isolated SPSC Conduits.
