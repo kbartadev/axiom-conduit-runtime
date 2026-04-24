@@ -52,13 +52,5 @@ While the core logic relies strictly on standard C++ features (Concepts, Atomics
 - **Clang 15+**
 - **GCC 12+**
 
-## ⚖️ Licensing & Commercial Support
-CONDUIT is released under the **GNU Affero General Public License v3 (AGPLv3)**. 
-
-### What this means
-If you use CONDUIT in a service (even behind a network), you must release your entire source code under the same AGPLv3 license. This ensures the technology remains open and collaborative.
-
-### Commercial Licensing (The Enterprise Path)
-For organizations that cannot comply with the AGPLv3 requirements (e.g., High-Frequency Trading firms, proprietary banking backends, closed-source telecom stacks), we offer a **Commercial License**.
-
-For pricing and legal inquiries, please contact: kbartadev@gmail.com
+## ⚖️ Licensing
+CONDUIT is released under the GNU Affero General Public License v3 (AGPLv3). For proprietary environments requiring closed-source integration, contact the author for commercial licensing.
