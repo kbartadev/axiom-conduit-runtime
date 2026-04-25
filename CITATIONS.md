@@ -29,8 +29,24 @@ The implementation relies on these industry standards for its legal and professi
 **ISO/IEC 14882:2020 (C++20 Standard):**
 * **Memory Model**: The engine utilizes Acquire-Release semantics (std::memory_order_acquire/release) for all lock-free atomic transitions [cite: 185, 191, 215, 310].
 * **Template Metaprogramming**: Relies on C++20 fold expressions and std::is_trivially_copyable_v to guarantee zero-overhead dispatch and hardware-compatible data structures [cite: 205-208, 641].
+  
+#### IV. Third-Party Dependencies & Test Frameworks
 
-#### IV. Licensing & Professional Attribution
+The Conduit Runtime Environment (CRE) utilizes the following open-source frameworks strictly for unit testing, structural validation, and microbenchmarking. These dependencies are NOT linked into the proprietary production binaries.
+
+* **Google Test (gtest)**
+    * *Usage*: Unit testing of the deterministic memory pool and hierarchical event dispatching.
+    * *License*: BSD-3-Clause License.
+    * *Copyright*: Copyright 2008, Google Inc. All rights reserved.
+    * *Source*: https://github.com/google/googletest
+
+* **Google Benchmark**
+    * *Usage*: Microbenchmarking O(1) allocation latency and pipeline throughput.
+    * *License*: Apache License 2.0.
+    * *Copyright*: Copyright 2015, Google Inc. All rights reserved.
+    * *Source*: https://github.com/google/benchmark
+
+#### V. Licensing & Professional Attribution
 * **Author**: Kristóf Barta
 * **Copyright**: © 2026 Kristóf Barta. All rights reserved.
 
