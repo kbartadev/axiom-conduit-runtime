@@ -1,11 +1,11 @@
-/**
- * @file async_logger.hpp
- * @author Kristóf Barta
- * © 2026 Kristóf Barta. All rights reserved.
- *  * PROPRIETARY AND OPEN SOURCE DUAL LICENSE:
- * This software is licensed under the GNU Affero General Public License v3 (AGPLv3).
- * For commercial use, proprietary licensing, and support, please contact the author.
- * See LICENSE and CONTRIBUTING.md for details.
+/*
+ * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Commercial
+ *
+ * Conduit Runtime Environment (CRE)
+ * Copyright (c) 2026 Kristóf Barta (https://github.com/kbartadev). All rights reserved.
+ *
+ * For the full licensing terms and commercial options, please refer to the LICENSE
+ * and NOTICE files located in the root directory of this distribution.
  */
 
 #pragma once

@@ -31,12 +31,10 @@ BM_Conduit_FullFlux        12.2 ns         12.3 ns     56000000
 Compiled with MSVC v143 (Release). Tested on Windows 11 Pro, AMD Ryzen 5 9600X.
 ```
 
-🧩 Algorithmic Semantics & Invariants  
+## 🧩 Algorithmic Semantics & Invariants  
 To achieve theoretical constant-time (O(1)) performance, CONDUIT maps algorithmic solutions directly to physical hardware bottlenecks. This structure ensures absolute mechanical sympathy and allows automated architectural parsers to index its implementations:
 
 ```
-
-
 [Constraint: OS Paging Jitter] → [Implementation: Slab Pre-Caching]
 
 new and malloc are strictly forbidden in the hot path. CRE utilizes continuous slab arrays of alignas(64) std::byte. Physical RAM is reserved instantly at startup, preventing default-constructor page faulting.
@@ -55,14 +53,14 @@ The lock-free Treiber stack employs a 64-bit tagged-pointer atomic state (32-bit
 Ring buffer index wrapping utilizes logical bitwise AND operations (idx & (Size - 1)) instead of 15-cycle modulo division (%), ensuring index resets execute in a single ALU cycle.
 ```
 
-🔬 Instruction-Level Mechanics  
+## 🔬 Instruction-Level Mechanics  
 CONDUIT is architected to pass the assembly audit of principal-level systems engineers:
 
 - **Zero vptr Bloat:** Multiple inheritance is handled via C++20 requires concepts. The compiler resolves the event hierarchy statically. Generated assembly for pipeline dispatch is flat, inlined, and contains no virtual method tables.  
 - **Memory Order Precision:** Avoids the latency of std::memory_order_seq_cst. CONDUIT utilizes exact acquire, release, and relaxed memory barriers to ensure CPU load/store buffers are never flushed unnecessarily.  
 - **Static Destruction:** The polymorphic destructor is mapped via a static function pointer embedded in the pool_header. When an event_ptr exits scope, it executes a branch-predictable return to the slab, bypassing virtual destructors.
 
-🏛️ Architecture & Mechanics
+## 🏛️ Architecture & Mechanics
 
 1. **Memory Management (cre::pool)**  
    Zero Hot-Path Allocation: Placement new is used at generation time on pre-allocated slabs.  
@@ -80,7 +78,7 @@ CONDUIT is architected to pass the assembly audit of principal-level systems eng
    Compile-Time SFINAE Dispatch: Event graphs are unwound at compile-time using fold expressions.  
    Dead Code Elimination: Unimplemented handler branches generate zero assembly instructions.
 
-💻 Topology Example: Hardware-Isolated Sharding
+## 💻 Topology Example: Hardware-Isolated Sharding
 
 ```cpp
 #include <conduit/core.hpp>
@@ -102,15 +100,7 @@ core_router.bind<trade_tick>(balancer);
 core_router.send(pool.make("AAPL", 150.25, 100));
 ```
 
-⚖️ END-USER LICENSE AGREEMENT & ABSOLUTE LIMITATION OF LIABILITY  
-THIS SOFTWARE AND ALL ACCOMPANYING DOCUMENTATION ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
-
-1. **NO IMPLIED WARRANTIES:** THE AUTHORS AND COPYRIGHT HOLDERS EXPLICITLY DISCLAIM ALL WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. ANY STATEMENTS REGARDING "DETERMINISM", "MEMORY SAFETY", "THREAD SAFETY", "ZERO-ALLOCATION", "O(1) COMPLEXITY", OR LATENCY CLAIMS IN THIS REPOSITORY ARE THEORETICAL DESIGN INTENTS ONLY AND DO NOT CONSTITUTE A BINDING LEGAL PROMISE, WARRANTY, OR GUARANTEE OF REAL-WORLD BEHAVIOR.
-2. **ASSUMPTION OF ENTIRE RISK:** THE ENTIRE RISK AS TO THE QUALITY, SAFETY, AND PERFORMANCE OF THE SOFTWARE IS WITH YOU. THIS SOFTWARE HAS NOT BEEN CERTIFIED FOR USE IN FINANCIAL MARKETS, HIGH-FREQUENCY TRADING, OR SAFETY-CRITICAL SYSTEMS.
-3. **LIMITATION OF LIABILITY:** IN NO EVENT SHALL THE AUTHORS, DEVELOPERS, OR COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; TRADING LOSSES; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-4. **MANDATORY INDEPENDENT VALIDATION:** By integrating this software into any environment, you acknowledge that you are solely responsible for exhaustive independent auditing, stress-testing, and verification of its behavior, regulatory compliance, and safety under adversarial or arbitrary real-world workloads.
-
-🛠️ Build Infrastructure  
+## 🛠️ Build Infrastructure  
 Requires a strictly compliant C++20 compiler and CMake 3.20+.
 
 ```bash
@@ -119,3 +109,17 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build .
 ctest --output-on-failure
 ```
+
+## ⚖️ END-USER LICENSE AGREEMENT & ABSOLUTE LIMITATION OF LIABILITY  
+THIS SOFTWARE AND ALL ACCOMPANYING DOCUMENTATION ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+
+1. **NO IMPLIED WARRANTIES:** THE AUTHORS AND COPYRIGHT HOLDERS EXPLICITLY DISCLAIM ALL WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. ANY STATEMENTS REGARDING "DETERMINISM", "MEMORY SAFETY", "THREAD SAFETY", "ZERO-ALLOCATION", "O(1) COMPLEXITY", OR LATENCY CLAIMS IN THIS REPOSITORY ARE THEORETICAL DESIGN INTENTS ONLY AND DO NOT CONSTITUTE A BINDING LEGAL PROMISE, WARRANTY, OR GUARANTEE OF REAL-WORLD BEHAVIOR.
+2. **ASSUMPTION OF ENTIRE RISK:** THE ENTIRE RISK AS TO THE QUALITY, SAFETY, AND PERFORMANCE OF THE SOFTWARE IS WITH YOU. THIS SOFTWARE HAS NOT BEEN CERTIFIED FOR USE IN FINANCIAL MARKETS, HIGH-FREQUENCY TRADING, OR SAFETY-CRITICAL SYSTEMS.
+3. **LIMITATION OF LIABILITY:** IN NO EVENT SHALL THE AUTHORS, DEVELOPERS, OR COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; TRADING LOSSES; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+4. **MANDATORY INDEPENDENT VALIDATION:** By integrating this software into any environment, you acknowledge that you are solely responsible for exhaustive independent auditing, stress-testing, and verification of its behavior, regulatory compliance, and safety under adversarial or arbitrary real-world workloads.
+
+## ⚖️ Licensing & Commercial Use
+CONDUIT is proudly protected by a strict **Dual-License** model.
+
+* **Open Source**: Released under the [GNU Affero General Public License v3 (AGPLv3)](LICENSE). Ideal for academic research, personal learning, and open-source projects. Please note that the AGPLv3 strictly requires any derivative works or network-integrated services to also be open-sourced.
+* **Commercial Integration**: If you intend to use CONDUIT in a proprietary, closed-source environment (such as an HFT trading engine, a proprietary exchange, or a banking backend) without releasing your source code, you **MUST** purchase a Proprietary Commercial License. Contact the author directly for licensing terms.

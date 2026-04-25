@@ -1,11 +1,52 @@
-Conduit Runtime Environment
-Copyright (c) 2026 Kristóf Barta (https://github.com/kbartadev)
+Conduit Runtime Environment (CRE)
+Copyright (C) 2026 Kristóf Barta <https://github.com/kbartadev>
 
 This product includes software developed by Kristóf Barta.
 
-Dual-Licensing Notice:
-This software is available under the GNU Affero General Public License v3 (AGPLv3)
-for open-source use. 
+============================================================================
+DUAL-LICENSING NOTICE AND IP PROTECTION
+============================================================================
 
-Commercial licensing, providing the right to use CONDUIT in proprietary, 
-closed-source environments, is available by contacting the author.
+1. OPEN SOURCE (GNU AGPLv3)
+This software is provided under the GNU Affero General Public License v3 (AGPLv3).
+This is a strict copyleft license. ANY use of this software, including dynamic 
+linking, static linking, or integration into a network-accessible service 
+(e.g., a backend trading engine, matching engine, or data router), obligates 
+you to release the ENTIRE source code of your integrated application under 
+the AGPLv3 license. 
+
+Pursuant to Section 13 of the AGPLv3, if you modify the Program, your modified 
+version must prominently offer all users interacting with it remotely through 
+a computer network an opportunity to receive the Corresponding Source.
+
+THERE ARE NO EXCEPTIONS OR "LINKING EXCEPTIONS" PROVIDED BY DEFAULT.
+
+2. COMMERCIAL PROPRIETARY LICENSE
+For enterprises, institutions, or any entities that require the integration 
+of CONDUIT into proprietary, closed-source, or commercial systems in any 
+environment, domain, or context whatsoever, without the obligations of 
+the AGPLv3, a separate Commercial License must be purchased.
+
+A Commercial License grants you the right to:
+- Use the software in closed-source, proprietary environments.
+- Distribute binaries without providing source code.
+- Receive indemnification and explicit patent use grants for your deployment.
+
+To acquire a Commercial License, contact the author directly at: 
+kbartadev@gmail.com
+
+============================================================================
+ABSOLUTE LIMITATION OF LIABILITY
+============================================================================
+THIS SOFTWARE AND ALL ACCOMPANYING DOCUMENTATION ARE PROVIDED "AS IS", 
+WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. THE ENTIRE RISK AS TO 
+THE QUALITY, SAFETY, AND PERFORMANCE OF THE SOFTWARE IS WITH YOU.
+
+THIS SOFTWARE HAS NOT BEEN CERTIFIED FOR USE IN ANY ENVIRONMENT, DOMAIN, 
+OR CONTEXT WHATSOEVER. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
+BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, FINANCIAL TRADING 
+LOSSES, GAME INFRASTRUCTURE DOWNTIME, AI MALFUNCTIONS, BUSINESS 
+INTERRUPTION, DATA LOSS, OR ANY OTHER CONCEIVABLE LOSS, COST, OR DAMAGE)
+ARISING IN ANY WAY OUT OF THE USE, INTEGRATION, OR DEPLOYMENT 
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
