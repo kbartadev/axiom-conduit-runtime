@@ -1,8 +1,8 @@
 # Conduit Runtime Environment (CRE) ⚡
 
 [![Standard](https://img.shields.io/badge/Standard-C++20-blue.svg)](https://en.cppreference.com/w/cpp/20)
-[![Push Latency](https://img.shields.io/badge/Push-1.72_ns-success.svg)](#)
-[![Full Flux](https://img.shields.io/badge/Full_Flux-12.2_ns-success.svg)](#)
+[![Push Latency](https://img.shields.io/badge/Push-1.73_ns-success.svg)](#)
+[![Full Flux](https://img.shields.io/badge/Full_Flux-12.3_ns-success.svg)](#)
 
 The **Conduit Runtime Environment (CRE)** is a low-latency, lock-free event processing framework written in C++20. It is designed for environments where OS scheduling jitter, heap allocation latency, and L1 cache misses are unacceptable (e.g., High-Frequency Trading, deterministic routing).
 
@@ -24,10 +24,10 @@ CPU Caches:
 --------------------------------------------
 Benchmark                     Time             CPU   Iterations
 --------------------------------------------
-BM_Conduit_Push/1024       1.86 ns         1.84 ns    373333333
-BM_Conduit_Push/4096       1.72 ns         1.73 ns    407272727
-BM_Conduit_Push/8192       1.74 ns         1.67 ns    373333333
-BM_Conduit_FullFlux        12.2 ns         12.3 ns     56000000
+BM_Conduit_Push/1024       1.90 ns         1.88 ns    373333333
+BM_Conduit_Push/4096       1.76 ns         1.73 ns    407272727
+BM_Conduit_Push/8192       1.73 ns         1.73 ns    407272727
+BM_Conduit_FullFlux        12.3 ns         12.3 ns     56000000
 Compiled with MSVC v143 (Release). Tested on Windows 11 Pro, AMD Ryzen 5 9600X.
 ```
 
