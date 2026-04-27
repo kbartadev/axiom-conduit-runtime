@@ -8,9 +8,9 @@ This document summarizes those technological solutions of the CRE architecture t
 
 `O(1)` Lock‑Free Slab Allocator (based on Treiber‑stack):  
 Objects are created inside pre‑allocated, fixed‑size memory regions (slabs).
-`[/include/conduit/experimental/core/slab_allocator.hpp]`.
+`[/include/conduit/pending/core/slab_allocator.hpp]`.
 The ABA problem is prevented by a 64‑bit packed pointer (upper 32 bits: ABA counter, lower 32 bits: index) in a lock‑free manner
-`[/include/conduit/experimental/core/slab_allocator.hpp]`.
+`[/include/conduit/pending/core/slab_allocator.hpp]`.
 
 ---
 
@@ -19,7 +19,7 @@ The ABA problem is prevented by a 64‑bit packed pointer (upper 32 bits: ABA co
 Hardware‑Level Elimination of the ABA Problem:  
 Lock‑free pointers (head pointers) use a 64‑bit packed structure, where the upper 32 bits store a version number (ABA counter) and the lower 32 bits store the index of the free block.
 This guarantees `O(1)` transactional operations.
-`[/include/conduit/experimental/core/slab_allocator.hpp]`
+`[/include/conduit/pending/core/slab_allocator.hpp]`
 
 ---
 
@@ -36,7 +36,7 @@ Pinned Slab Allocator (GPU/DMA Zero‑Copy):
 The operating system’s pager is bypassed using `VirtualLock` (Windows) and `mlock` (POSIX).
 For AI and MoE (Mixture of Experts) workloads, the system uses dedicated, OS‑level “locked” (non‑pageable) memory
 (`VirtualAlloc` + `VirtualLock` on Windows, `mmap` + `mlock` on POSIX)
-`[/include/conduit/experimental/core/pinned_slab_allocator.hpp]`.
+`[/include/conduit/pending/core/pinned_slab_allocator.hpp]`.
 This allows the GPU to read memory directly (DMA) without CPU involvement.
 
 ---
@@ -46,7 +46,7 @@ This allows the GPU to read memory directly (DMA) without CPU involvement.
 L1 Cache Line Isolation (Preventing False Sharing):  
 All critical data structures (e.g., pointers, atomic variables, events) are annotated with
 `alignas(CACHE_LINE_SIZE)` (64 bytes)
-`[/include/conduit/experimental/core/physical_layout.hpp]`.
+`[/include/conduit/pending/core/physical_layout.hpp]`.
 This guarantees at the hardware level that threads running on different cores do not invalidate each other’s cache lines
 `[/include/conduit/core.hpp]`.
 
@@ -85,7 +85,7 @@ The core of CRE is built on completely eliminating dynamic memory allocation in 
 Deterministic `O(1)` Lock‑Free Slab Allocator:
 Objects are created inside pre‑allocated, fixed‑size memory regions (slabs).
 Thread‑safe operation is achieved using an enhanced version of the Treiber‑stack algorithm.
-`[/include/conduit/experimental/core/slab_allocator.hpp]`
+`[/include/conduit/pending/core/slab_allocator.hpp]`
 
 ---
 
@@ -93,7 +93,7 @@ Thread‑safe operation is achieved using an enhanced version of the Treiber‑s
 
 ABA Protection with Pointer Tagging:
 The ABA problem occurring during lock‑free state management is eliminated by a 64‑bit packed structure (32‑bit version number + 32‑bit index).
-`[/include/conduit/experimental/core/slab_allocator.hpp]`
+`[/include/conduit/pending/core/slab_allocator.hpp]`
 
 ---
 
@@ -117,7 +117,7 @@ Freed blocks are reused in LIFO (Last-In-First-Out) order, guaranteeing immediat
 Pinned (Locked) Slab Allocator for GPU/DMA Zero‑Copy:  
 The operating system’s pager is bypassed using `VirtualLock` (Windows) and `mlock` (POSIX).
 This allows AI payloads to be accessed directly by the GPU (DMA) without CPU copying.
-`[/include/conduit/experimental/core/pinned_slab_allocator.hpp]`
+`[/include/conduit/pending/core/pinned_slab_allocator.hpp]`
 
 ---
 
@@ -125,7 +125,7 @@ This allows AI payloads to be accessed directly by the GPU (DMA) without CPU cop
 
 Cache-Line Isolation:
 All critical structures and counters are aligned to 64‑byte boundaries (`alignas(64)`), preventing false sharing and cache conflicts between cores.
-`[/include/conduit/experimental/core/physical_layout.hpp]`
+`[/include/conduit/pending/core/physical_layout.hpp]`
 
 ---
 
@@ -252,7 +252,7 @@ The ring buffer capacity must be a power of two.
 Deterministic Mesh Routing:
 `round_robin_switch` (Fan‑out) and `round_robin_poller` (Fan‑in) distribute load deterministically and starvation‑free.
 `[/include/conduit/core.hpp]`  
-`[/include/conduit/experimental/net/mesh_router.hpp]`.
+`[/include/conduit/pending/net/mesh_router.hpp]`.
 
 ---
 
@@ -272,7 +272,7 @@ The network layer (`networked_conduit`, `http_gateway`) reads bytes directly int
 
 `O(1)` Timing Wheel (Intrusive Timers):  
 A timing‑wheel algorithm using intrusive lists.
-`[/include/conduit/experimental/core/timing_wheel.hpp]`.
+`[/include/conduit/pending/core/timing_wheel.hpp]`.
 
 ---
 
@@ -281,7 +281,7 @@ A timing‑wheel algorithm using intrusive lists.
 Preallocated State Machine (Deterministic Workflow/Saga Engine):
 Long‑running process state is stored in a preallocated array where the identifier directly corresponds to the memory index (`O(1)` lookup).
 The state of complex business processes (`deterministic_saga`) is stored in an `O(1)` array.
-`[/include/conduit/experimental/workflow/state_machine.hpp]`.
+`[/include/conduit/pending/workflow/state_machine.hpp]`.
 
 ---
 
@@ -290,7 +290,7 @@ The state of complex business processes (`deterministic_saga`) is stored in an `
 Hardware Isolation (Thread Pinning):  
 `node_runtime` binds threads to dedicated CPU cores.
 `[/include/conduit/runtime/node_runtime.hpp]`  
-`[/include/conduit/experimental/supplemental/environment.hpp]`
+`[/include/conduit/pending/supplemental/environment.hpp]`
 
 ---
 
