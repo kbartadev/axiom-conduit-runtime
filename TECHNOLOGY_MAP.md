@@ -8,9 +8,9 @@ This document summarizes those technological solutions of the CRE architecture t
 
 `O(1)` Lock‑Free Slab Allocator (based on Treiber‑stack):  
 Objects are created inside pre‑allocated, fixed‑size memory regions (slabs).
-`[/include/conduit/core/slab_allocator.hpp]`.
+`[/include/conduit/experimental/core/slab_allocator.hpp]`.
 The ABA problem is prevented by a 64‑bit packed pointer (upper 32 bits: ABA counter, lower 32 bits: index) in a lock‑free manner
-`[/include/conduit/core/slab_allocator.hpp]`.
+`[/include/conduit/experimental/core/slab_allocator.hpp]`.
 
 ---
 
@@ -19,7 +19,7 @@ The ABA problem is prevented by a 64‑bit packed pointer (upper 32 bits: ABA co
 Hardware‑Level Elimination of the ABA Problem:  
 Lock‑free pointers (head pointers) use a 64‑bit packed structure, where the upper 32 bits store a version number (ABA counter) and the lower 32 bits store the index of the free block.
 This guarantees `O(1)` transactional operations.
-`[/include/conduit/core/slab_allocator.hpp]`
+`[/include/conduit/experimental/core/slab_allocator.hpp]`
 
 ---
 
@@ -85,7 +85,7 @@ The core of CRE is built on completely eliminating dynamic memory allocation in 
 Deterministic `O(1)` Lock‑Free Slab Allocator:
 Objects are created inside pre‑allocated, fixed‑size memory regions (slabs).
 Thread‑safe operation is achieved using an enhanced version of the Treiber‑stack algorithm.
-`[/include/conduit/core/slab_allocator.hpp]`
+`[/include/conduit/experimental/core/slab_allocator.hpp]`
 
 ---
 
@@ -93,7 +93,7 @@ Thread‑safe operation is achieved using an enhanced version of the Treiber‑s
 
 ABA Protection with Pointer Tagging:
 The ABA problem occurring during lock‑free state management is eliminated by a 64‑bit packed structure (32‑bit version number + 32‑bit index).
-`[/include/conduit/core/slab_allocator.hpp]`
+`[/include/conduit/experimental/core/slab_allocator.hpp]`
 
 ---
 
@@ -117,7 +117,7 @@ Freed blocks are reused in LIFO (Last-In-First-Out) order, guaranteeing immediat
 Pinned (Locked) Slab Allocator for GPU/DMA Zero‑Copy:  
 The operating system’s pager is bypassed using `VirtualLock` (Windows) and `mlock` (POSIX).
 This allows AI payloads to be accessed directly by the GPU (DMA) without CPU copying.
-`[/include/conduit/core/pinned_slab_allocator.hpp]`
+`[/include/conduit/experimental/core/pinned_slab_allocator.hpp]`
 
 ---
 
@@ -125,7 +125,7 @@ This allows AI payloads to be accessed directly by the GPU (DMA) without CPU cop
 
 Cache-Line Isolation:
 All critical structures and counters are aligned to 64‑byte boundaries (`alignas(64)`), preventing false sharing and cache conflicts between cores.
-`[/include/conduit/core/physical_layout.hpp]`
+`[/include/conduit/experimental/core/physical_layout.hpp]`
 
 ---
 
