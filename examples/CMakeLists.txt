@@ -13,7 +13,7 @@ foreach(EXAMPLE_FILE ${CONDUIT_EXAMPLE_SOURCES})
 
     target_link_libraries(${EXAMPLE_NAME}
         PRIVATE
-            conduit
+            conduit-runtime-environment
     )
 
     target_compile_features(${EXAMPLE_NAME} PRIVATE cxx_std_20)

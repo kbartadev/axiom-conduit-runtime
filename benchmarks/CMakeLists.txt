@@ -36,7 +36,7 @@ foreach(BENCH_FILE ${CONDUIT_BENCH_SOURCES})
 
     target_link_libraries(${BENCH_NAME}
         PRIVATE
-            conduit
+            conduit-runtime-environment
             benchmark::benchmark
             benchmark::benchmark_main
     )
