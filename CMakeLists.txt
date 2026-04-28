@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(conduit
+project(conduit-runtime-environment
     VERSION 1.0.0
-    DESCRIPTION "Deterministic Distributed Event Runtime"
+    DESCRIPTION "Conduit Runtime Environment"
     LANGUAGES CXX
 )
 
@@ -16,9 +16,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # -------------------------------------------------------------
 # Header-only CONDUIT library
 # -------------------------------------------------------------
-add_library(conduit INTERFACE)
+add_library(conduit-runtime-environment INTERFACE)
 
-target_include_directories(conduit INTERFACE
+target_include_directories(conduit-runtime-environment INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
@@ -64,7 +64,7 @@ endif()
 # -------------------------------------------------------------
 # Installation
 # -------------------------------------------------------------
-install(TARGETS conduit
+install(TARGETS conduit-runtime-environment
     EXPORT conduitTargets
     INCLUDES DESTINATION include
 )
@@ -74,7 +74,7 @@ install(DIRECTORY include/ DESTINATION include)
 install(EXPORT conduitTargets
     FILE conduitTargets.cmake
     NAMESPACE cre::
-    DESTINATION lib/cmake/conduit
+    DESTINATION lib/cmake/conduit-runtime-environment
 )
 
 include(CMakePackageConfigHelpers)
@@ -88,11 +88,11 @@ write_basic_package_version_file(
 configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/conduitConfig.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/conduitConfig.cmake"
-    INSTALL_DESTINATION lib/cmake/conduit
+    INSTALL_DESTINATION lib/cmake/conduit-runtime-environment
 )
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/conduitConfig.cmake"
     "${CMAKE_CURRENT_BINARY_DIR}/conduitConfigVersion.cmake"
-    DESTINATION lib/cmake/conduit
+    DESTINATION lib/cmake/conduit-runtime-environment
 )
